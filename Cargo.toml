@@ -1,0 +1,15 @@
+[package]
+name = "kctx"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.100"
+clap = { version = "4.5.54", features = ["derive"] }
+console = "0.16.2"
+dialoguer = { version = "0.12.0", features = ["fuzzy-select"] }
+dirs = "6.0.0"
+k8s-openapi = { version = "0.27.0", features = ["v1_31"] }
+kube = { version = "3.0.0", features = ["config"] }
+serde_yaml = "0.9.34"
+tokio = { version = "1.49.0", features = ["full"] }
