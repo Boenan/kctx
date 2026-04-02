@@ -1,6 +1,9 @@
 [package]
 name = "kctx"
 version = "0.1.0"
+description = "A kube context switcher"
+authors = ["Fabian Waxin <fabian.waxin@gmail.com>"]
+license = "MIT"
 edition = "2024"
 
 [dependencies]
@@ -13,3 +16,5 @@ k8s-openapi = { version = "0.27.0", features = ["v1_31"] }
 kube = { version = "3.0.0", features = ["config"] }
 serde_yaml = "0.9.34"
 tokio = { version = "1.49.0", features = ["full"] }
+
+
