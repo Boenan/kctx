@@ -1,6 +1,6 @@
 [package]
 name = "kctx"
-version = "0.1.1"
+version = "0.2.0"
 description = "A kube context switcher"
 authors = ["Fabian Waxin <fabian.waxin@gmail.com>"]
 license = "MIT"
