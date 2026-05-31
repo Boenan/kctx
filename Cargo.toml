@@ -7,15 +7,28 @@ license = "MIT"
 edition = "2024"
 
 [dependencies]
-anyhow = "1.0.100"
-clap = { version = "4.5.54", features = ["derive"] }
-clap_complete = { version = "4.5", features = ["unstable-dynamic"] }
-console = "0.16.2"
-dialoguer = { version = "0.12.0", features = ["fuzzy-select"] }
+anyhow = "1.0.102"
+clap = { version = "4.6.1", default-features = false, features = ["derive", "std", "help", "usage", "color"] }
+clap_complete = { version = "4.6.5", features = ["unstable-dynamic"] }
+console = "0.16.3"
+dialoguer = { version = "0.12.0", default-features = false, features = ["fuzzy-select"] }
 dirs = "6.0.0"
-k8s-openapi = { version = "0.27.0", features = ["v1_31"] }
-kube = { version = "3.0.0", features = ["config"] }
+k8s-openapi = { version = "0.27.1", features = ["v1_31"] }
+kube = { version = "3.1.0", default-features = false, features = ["config", "client", "rustls-tls"] }
+rustls = { version = "0.23.40", default-features = false, features = ["ring", "std", "tls12"] }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.150"
 serde_yaml = "0.9.34"
-tokio = { version = "1.49.0", features = ["full"] }
+tokio = { version = "1.52.3", features = ["rt", "macros", "net", "time"] }
+
+[profile.release]
+opt-level = "z"     # Optimize for size
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Reduce parallel code generation units to increase optimization
+panic = "abort"     # Remove panic string/unwinding code
+strip = true        # Automatically strip symbols from the binary
+
+[dev-dependencies]
+tempfile = "3.27.0"
 
 
